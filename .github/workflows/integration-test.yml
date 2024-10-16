@@ -26,14 +26,14 @@ jobs:
     - name: Checkout source
       uses: actions/checkout@v4
 
-    - name: install
-      run: cargo install --force --path .
-
     - name: Update Cargo
       run: cargo update
 
     - name: Fix Lib 
       run: cargo fix --lib -p namecom_ddns
+
+    - name: install
+      run: cargo install --path .  
 
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2
