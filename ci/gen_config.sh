@@ -24,10 +24,10 @@ username = "gtskhadadze83@gmail.com-test"
 key = "6a002be3412c21b8a9b67ff1820d1e48de476d16"
 
 [[records]]
-host = "ddns"
+host = "ddns.gtskhost.system"
 zone = "gtskhost.system"
-type = "AAAA"
+type = "A"
 ttl = 300
-method = "global"
+method = "local"
 interface = "en0"
 EOF
