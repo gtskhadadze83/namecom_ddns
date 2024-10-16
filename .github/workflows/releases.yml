@@ -17,7 +17,9 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - name: Nix
+        - name: macOS_Intel
+          os: macos-latest
+        - name: Linux
           os: ubuntu-latest
         - name: Windows
           os: windows-latest
@@ -28,6 +30,9 @@ jobs:
 
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2
+
+    - name: Update Cargo
+      run: cargo update
 
     - name: Build release
       run: cargo build --release
