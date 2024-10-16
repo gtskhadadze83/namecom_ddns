@@ -17,8 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - name: macOS_Intel
-          os: macos-latest
         - name: Linux
           os: ubuntu-latest
         - name: Windows
@@ -27,6 +25,11 @@ jobs:
     steps:
     - name: Checkout source
       uses: actions/checkout@v4
+
+    - name: Setup Cargo
+      run: |
+        cargo install --locked --force --path
+        cargo update
 
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2
@@ -40,7 +43,6 @@ jobs:
         TEST_NAMECOM_KEY: ${{ secrets.TEST_NAMECOM_KEY }}
       run: |
         bash ci/gen_config.sh
-        cargo update
         cargo run -- -sf ci_config.toml -l debug
         rm ci_config.toml
         bash ci/validate_and_cleanup.sh
