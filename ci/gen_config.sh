@@ -24,7 +24,7 @@ username = "gtskhadadze83@gmail.com-test"
 key = "6a002be3412c21b8a9b67ff1820d1e48de476d16"
 
 [[records]]
-host = "fritz"
+host = "fritz.gtskhost.systems"
 zone = "gtskhost.systems"
 type = "AAAA"
 ttl = 300
