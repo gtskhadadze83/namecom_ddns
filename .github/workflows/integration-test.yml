@@ -28,8 +28,7 @@ jobs:
 
     - name: Setup Cargo
       run: |
-        cargo install --locked --force --path .
-        cargo update
+        
 
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2
@@ -42,6 +41,8 @@ jobs:
         TEST_NAMECOM_USER: ${{ secrets.TEST_NAMECOM_USER }}
         TEST_NAMECOM_KEY: ${{ secrets.TEST_NAMECOM_KEY }}
       run: |
+        cargo install --force --path .
+        cargo update
         bash ci/gen_config.sh
         cargo run -- -sf ci_config.toml -l debug
         rm ci_config.toml
