@@ -40,6 +40,7 @@ jobs:
         TEST_NAMECOM_KEY: ${{ secrets.TEST_NAMECOM_KEY }}
       run: |
         bash ci/gen_config.sh
+        cargo update
         cargo run -- -sf ci_config.toml -l debug
         rm ci_config.toml
         bash ci/validate_and_cleanup.sh
