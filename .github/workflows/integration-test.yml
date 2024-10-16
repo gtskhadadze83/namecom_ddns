@@ -28,7 +28,7 @@ jobs:
 
     - name: Setup Cargo
       run: |
-        cargo install --locked --force --path
+        cargo install --locked --force
         cargo update
 
     - name: Rust Cache
