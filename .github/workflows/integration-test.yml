@@ -29,9 +29,6 @@ jobs:
     - name: Update Cargo
       run: cargo update
 
-    - name: Cargo Install
-      run: cargo install --force --path .
-
     - name: Fix Lib 
       run: cargo fix --lib -p namecom_ddns
 
