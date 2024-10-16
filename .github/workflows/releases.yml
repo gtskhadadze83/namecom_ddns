@@ -29,8 +29,10 @@ jobs:
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2
 
-    - name: Update Cargo
-      run: cargo update
+    - name: Setup Cargo
+      run: |
+          cargo install --locked --force --path
+          cargo update
 
     - name: Build release
       run: cargo build --release
