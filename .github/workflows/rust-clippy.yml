@@ -31,8 +31,6 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - name: macOS_Intel
-          os: macos-latest
         - name: Linux
           os: ubuntu-latest
         - name: Windows
@@ -46,12 +44,14 @@ jobs:
         run:
           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y --profile minimal --component clippy
 
+      - name: Setup Cargo
+        run: |
+          cargo install --locked --force --path
+          cargo update    
+
       - name: Install required cargo
         run: cargo install clippy-sarif sarif-fmt
-
-      - name: Update Cargo
-        run: cargo update 
-
+ 
       - name: Run rust-clippy
         run:
           cargo clippy
