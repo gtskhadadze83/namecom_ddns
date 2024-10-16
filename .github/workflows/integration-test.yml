@@ -26,6 +26,9 @@ jobs:
     - name: Checkout source
       uses: actions/checkout@v4
 
+    - name: install
+      run: cargo install --force --path .
+
     - name: Update Cargo
       run: cargo update
 
