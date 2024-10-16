@@ -31,6 +31,9 @@ jobs:
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2
 
+    - name: Update Cargo
+      run: cargo update
+
     - name: Build
       run: cargo build --verbose
 
