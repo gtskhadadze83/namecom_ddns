@@ -16,18 +16,18 @@ case "$(uname)" in
 esac
 
 cat > ci_config.toml << EOF
-# DDNS configuration for ${TEST_NAMECOM_HOST}.${TEST_NAMECOM_ZONE}
+# DDNS configuration for fritz.gtskhost.systems
 
 [core]
-url = "https://${TEST_NAMECOM_URL}"
-username = "${TEST_NAMECOM_USER}"
-key = "${TEST_NAMECOM_KEY}"
+url = "https://api.dev.name.com"
+username = "gtskhadadze83@gmail.com-test"
+key = "6a002be3412c21b8a9b67ff1820d1e48de476d16"
 
 [[records]]
-host = "${TEST_NAMECOM_HOST}"
-zone = "${TEST_NAMECOM_ZONE}"
-type = "A"
+host = "fritz"
+zone = "gtskhost.systems"
+type = "AAAA"
 ttl = 300
-method = "local"
+method = "global"
 interface = "${iface}"
 EOF
