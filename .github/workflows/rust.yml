@@ -17,8 +17,6 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - name: macOS_Intel
-          os: macos-latest
         - name: Linux
           os: ubuntu-latest
         - name: Windows
@@ -28,12 +26,14 @@ jobs:
     - name: Checkout source
       uses: actions/checkout@v4
 
+    - name: Setup Cargo
+      run: |
+        cargo install --locked --force --path
+        cargo update
+
     - name: Rust Cache
       uses: Swatinem/rust-cache@v2
-
-    - name: Update Cargo
-      run: cargo update
-
+    
     - name: Build
       run: cargo build --verbose
 
