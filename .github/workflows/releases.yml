@@ -17,7 +17,7 @@ jobs:
       fail-fast: false
       matrix:
         config:
-        - name: Linux
+        - name: Nix
           os: ubuntu-latest
         - name: Windows
           os: windows-latest
